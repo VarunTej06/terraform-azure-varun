@@ -10,5 +10,6 @@ resource "azurerm_network_interface" "web_linuxvm_nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.web_linuxvm_publicip.id
   }
+  # you can have multiple ip_config blocks for attaching multiple IPs to single VM.
 }
 

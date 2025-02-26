@@ -1,3 +1,4 @@
+# Comment this whole file before performing destroy action otherwise it will throw an error.
 /*
 # Resource-3 (Optional): Create Network Security Group and Associate to Linux VM Network Interface
 # Resource-1: Create Network Security Group (NSG)

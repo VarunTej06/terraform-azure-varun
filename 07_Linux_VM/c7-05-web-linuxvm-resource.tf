@@ -26,10 +26,10 @@ resource "azurerm_linux_virtual_machine" "web_linuxvm" {
   resource_group_name = azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location 
   size = "Standard_DS1_v2"
-  admin_username = "azureuser"
-  network_interface_ids = [ azurerm_network_interface.web_linuxvm_nic.id ]
+  admin_username = "azureuser" #can use while ssh
+  network_interface_ids = [ azurerm_network_interface.web_linuxvm_nic.id ] # you can add multiple nic's
   admin_ssh_key {
-    username = "azureuser"
+    username = "azureuser" # public key will be accepted only when the username is this
     public_key = file("${path.module}/ssh-keys/terraform-azure.pub")
   }
   os_disk {
@@ -43,5 +43,6 @@ resource "azurerm_linux_virtual_machine" "web_linuxvm" {
     version = "latest"
   }  
   #custom_data = filebase64("${path.module}/app-scripts/redhat-webvm-script.sh")
-  custom_data = base64encode(local.webvm_custom_data)
+  custom_data = base64encode(local.webvm_custom_data) # Sample applications need to be installed in this vm
+  # custom data should be base64 encoded
 }

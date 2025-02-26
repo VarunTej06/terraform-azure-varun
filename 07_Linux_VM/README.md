@@ -27,7 +27,7 @@ cd terraform-manifests/
 mkdir ssh-keys
 
 # Create SSH Key
-cd ssh-ekys
+cd 07_Linux_vm
 ssh-keygen \
     -m PEM \
     -t rsa \
